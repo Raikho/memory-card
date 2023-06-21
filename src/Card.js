@@ -1,9 +1,9 @@
 
 
-function Card() {
+const Card = props => {
 
     return (
-        <div className="card">CARD</div>
+        <div className="card">{props.value}</div>
     )
 }
 
