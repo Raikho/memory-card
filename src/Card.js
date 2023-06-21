@@ -1,9 +1,9 @@
 
 
 const Card = props => {
-
+    const { value, clicked } = props;
     return (
-        <div className="card">{props.value}</div>
+        <div className={clicked ? "card clicked" : "card"}>{value}</div>
     )
 }
 
