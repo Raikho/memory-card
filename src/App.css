@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+/* ============================== NEW =============================  */
+/* ================================================================  */
+.card {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #fff3;
+  border: 3px solid white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
