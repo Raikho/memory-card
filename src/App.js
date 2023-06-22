@@ -11,10 +11,18 @@ function App() {
 
   const randomizeCards = () => {
     let newCards = JSON.parse(JSON.stringify(cards));
-    let random = Math.floor(Math.random()*26);
+    let selectedCards = [];
 
-    newCards[random].value = 'Test';
-    newCards[random].clicked = true;
+    let card = null;
+    while (selectedCards.length < 10) {
+      do {
+        card = newCards[rand(26)];
+        console.log('picked card: ', card)
+      } while(card.active);
+      selectedCards.push(card);
+    }
+
+    selectedCards.forEach(card => card.clicked);
     setCards(newCards);
   } 
 
@@ -32,3 +40,5 @@ function App() {
 }
 
 export default App;
+
+function rand(x) {return Math.floor(Math.random()*x);}
