@@ -9,10 +9,10 @@ function App() {
     return {value: letter, selected: false, clicked: false}
   }));
 
-  // const [score, setScore] = useState(0);
-  // const [streak, setStreak] = useState(0);
+  const [score, setScore] = useState(0);
+  const [streak, setStreak] = useState(0);
 
-  const randomizeCards = () => {
+  const randomizeCards = isReset => {
     let newCards = JSON.parse(JSON.stringify(cards));
     newCards.forEach(card => card.selected = false); // reset .active
 
@@ -41,18 +41,27 @@ function App() {
   const clickedNew = (newCards, card) => {
     card.clicked = true;
     setCards(newCards);
-    // randomizeCards();
+
+    setScore(score + 1);
+    // randomizeCards(false);
   }
 
   const clickedOld = (newCards, card) => {
-
+    setScore(0);
+    // randomizeCards(true);
   }
 
   useEffect(randomizeCards, []);
 
+  useEffect(() => {if (score > streak) setStreak(score);}, [score])
+
   return (
     <div className="App">
       <header className="App-header">
+        <div className="stats">
+          <div className="score">{`Score: ${score}`}</div>
+          <div className="streak">{`Streak: ${streak}`}</div>
+        </div>
         <div className="card-container">
           {cards.filter(card => card.selected).map(card => 
             <Card 
