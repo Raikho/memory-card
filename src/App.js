@@ -7,7 +7,7 @@ let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 
 function App() {
   const [cards, setCards] = useState(letters.map(letter => {
-    return {value: letter, selected: false, clicked: false}
+    return {id: letter, selected: false, clicked: false}
   }));
 
   const [score, setScore] = useState(0);
@@ -30,8 +30,8 @@ function App() {
       while (selected.length < 10)
         selected.push(...unselected.splice(rand(unselected.length), 1));
   
-      console.log('unselected', unselected.map(card => card.value)); // DEBUG
-      console.log('selected', selected.map(card => card.value)); // DEBUG
+      console.log('unselected', unselected.map(card => card.id)); // DEBUG
+      console.log('selected', selected.map(card => card.id)); // DEBUG
   
       selected.forEach(card => card.selected = true);
       return newCards;
@@ -39,7 +39,7 @@ function App() {
   } 
 
   const handleClicked = id => {
-    if (cards.filter(card => card.value === id)[0].clicked)
+    if (cards.filter(card => card.id === id)[0].clicked)
       clickedOld();
     else 
       clickedNew(id);
@@ -50,7 +50,7 @@ function App() {
 
     setCards(prevCards => {
       let newCards = JSON.parse(JSON.stringify(prevCards));
-      let card = newCards.filter(card => card.value === id)[0];
+      let card = newCards.filter(card => card.id === id)[0];
       card.clicked = true;
       return newCards;
     });
@@ -80,9 +80,8 @@ function App() {
         <div className="card-container">
           {cards.filter(card => card.selected).map(card => 
             <Card 
-              key={card.value}
-              id={card.value} // change
-              value={card.value} 
+              key={card.id}
+              id={card.id} // change
               clicked={card.clicked}
               handleClicked={handleClicked}
             />
