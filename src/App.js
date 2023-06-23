@@ -45,6 +45,8 @@ function App() {
   }
 
   const clickedNew = id => {
+     // check win condition
+
     setCards(prevCards => {
       let newCards = JSON.parse(JSON.stringify(prevCards));
       let card = newCards.filter(card => card.value === id)[0];
@@ -58,7 +60,12 @@ function App() {
 
   const clickedOld = (newCards, card) => {
     setScore(0);
-    // randomizeCards(true);
+    setCards(prevCards => {
+      let newCards = JSON.parse(JSON.stringify(prevCards));
+      newCards.forEach(card => card.clicked = false);
+      return newCards;
+    });
+    randomizeCards();
   }
 
   useEffect(randomizeCards, []);
