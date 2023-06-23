@@ -6,12 +6,12 @@ let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 
 function App() {
   const [cards, setCards] = useState(letters.map(letter => {
-    return {value: letter, active: false, clicked: false}
+    return {value: letter, selected: false, clicked: false}
   }));
 
   const randomizeCards = () => {
     let newCards = JSON.parse(JSON.stringify(cards));
-    newCards.forEach(card => card.active = false); // reset .active
+    newCards.forEach(card => card.selected = false); // reset .active
 
     let selected = []; // TODO: pick an unclicked one first'
     let unselected = [...newCards];
@@ -23,9 +23,19 @@ function App() {
     console.log('unselected', unselected.map(card => card.value)); // DEBUG
     console.log('selected', selected.map(card => card.value)); // DEBUG
 
-    selected.forEach(card => card.clicked = true);
+    selected.forEach(card => card.selected = true);
     setCards(newCards);
   } 
+
+  const handleClicked = id => {
+    let newCards = JSON.parse(JSON.stringify(cards));
+    let card = newCards.filter(card => card.value === id)[0];
+
+    // TODO: branch into if clicked or not;
+
+    card.clicked = true;
+    setCards(newCards);
+  }
 
   useEffect(randomizeCards, []);
 
@@ -33,11 +43,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="card-container">
-          {cards.filter(card => card.clicked).map(card => 
+          {cards.filter(card => card.selected).map(card => 
             <Card 
               key={card.value}
+              id={card.value} // change
               value={card.value} 
               clicked={card.clicked}
+              handleClicked={handleClicked}
             />
           )}
         </div>

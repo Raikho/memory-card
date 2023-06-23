@@ -1,9 +1,12 @@
 
 
 const Card = props => {
-    const { value, clicked } = props;
+    const { id, value, clicked, handleClicked } = props;
     return (
-        <div className={clicked ? "card clicked" : "card"}>{value}</div>
+        <div 
+            className={clicked ? "card clicked" : "card"}
+            onClick={() => handleClicked(id)}
+        >{value}</div>
     )
 }
 
