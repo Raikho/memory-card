@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card.js';
+import Stats from './Stats.js';
 import './App.css';
 
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
@@ -45,7 +46,7 @@ function App() {
   }
 
   const clickedNew = id => {
-     // check win condition
+     // TODO: check win condition
 
     setCards(prevCards => {
       let newCards = JSON.parse(JSON.stringify(prevCards));
@@ -75,10 +76,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="stats">
-          <div className="score">{`Score: ${score}`}</div>
-          <div className="streak">{`Streak: ${streak}`}</div>
-        </div>
+        <Stats score={score} streak={streak}/>
         <div className="card-container">
           {cards.filter(card => card.selected).map(card => 
             <Card 
