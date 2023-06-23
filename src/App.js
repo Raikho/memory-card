@@ -12,38 +12,43 @@ function App() {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
 
-  const randomizeCards = isReset => {
-    let newCards = JSON.parse(JSON.stringify(cards));
-    newCards.forEach(card => card.selected = false); // reset .active
-
-    let selected = []; // TODO: pick an unclicked one first'
-    let unselected = [...newCards];
-
-    while (selected.length < 10) {
-      selected.push(...unselected.splice(rand(unselected.length), 1));
-    }
-
-    console.log('unselected', unselected.map(card => card.value)); // DEBUG
-    console.log('selected', selected.map(card => card.value)); // DEBUG
-
-    selected.forEach(card => card.selected = true);
-    setCards(newCards);
+  const randomizeCards = () => {
+    setCards(prevCards => {
+      let newCards = JSON.parse(JSON.stringify(prevCards));
+      newCards.forEach(card => card.selected = false); // reset .active
+  
+      let selected = []; // TODO: pick an unclicked one first'
+      let unselected = [...newCards];
+  
+      while (selected.length < 10) {
+        selected.push(...unselected.splice(rand(unselected.length), 1));
+      }
+  
+      console.log('unselected', unselected.map(card => card.value)); // DEBUG
+      console.log('selected', selected.map(card => card.value)); // DEBUG
+  
+      selected.forEach(card => card.selected = true);
+      return newCards;
+    })
   } 
 
   const handleClicked = id => {
-    let newCards = JSON.parse(JSON.stringify(cards));
-    let card = newCards.filter(card => card.value === id)[0];
-
-    (card.clicked) ? clickedOld(newCards, card) : clickedNew(newCards, card);
-
+    if (cards.filter(card => card.value === id)[0].clicked)
+      clickedOld();
+    else 
+      clickedNew(id);
   }
 
-  const clickedNew = (newCards, card) => {
-    card.clicked = true;
-    setCards(newCards);
+  const clickedNew = id => {
+    setCards(prevCards => {
+      let newCards = JSON.parse(JSON.stringify(prevCards));
+      let card = newCards.filter(card => card.value === id)[0];
+      card.clicked = true;
+      return newCards;
+    });
 
-    setScore(score + 1);
-    // randomizeCards(false);
+    setScore(prevScore => prevScore + 1);
+    randomizeCards();
   }
 
   const clickedOld = (newCards, card) => {
