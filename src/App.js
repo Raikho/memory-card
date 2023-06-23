@@ -9,6 +9,9 @@ function App() {
     return {value: letter, selected: false, clicked: false}
   }));
 
+  // const [score, setScore] = useState(0);
+  // const [streak, setStreak] = useState(0);
+
   const randomizeCards = () => {
     let newCards = JSON.parse(JSON.stringify(cards));
     newCards.forEach(card => card.selected = false); // reset .active
@@ -31,10 +34,18 @@ function App() {
     let newCards = JSON.parse(JSON.stringify(cards));
     let card = newCards.filter(card => card.value === id)[0];
 
-    // TODO: branch into if clicked or not;
+    (card.clicked) ? clickedOld(newCards, card) : clickedNew(newCards, card);
 
+  }
+
+  const clickedNew = (newCards, card) => {
     card.clicked = true;
     setCards(newCards);
+    // randomizeCards();
+  }
+
+  const clickedOld = (newCards, card) => {
+
   }
 
   useEffect(randomizeCards, []);
