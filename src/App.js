@@ -11,18 +11,19 @@ function App() {
 
   const randomizeCards = () => {
     let newCards = JSON.parse(JSON.stringify(cards));
-    let selectedCards = [];
+    newCards.forEach(card => card.active = false); // reset .active
 
-    let card = null;
-    while (selectedCards.length < 10) {
-      do {
-        card = newCards[rand(26)];
-        console.log('picked card: ', card)
-      } while(card.active);
-      selectedCards.push(card);
+    let selected = []; // TODO: pick an unclicked one first'
+    let unselected = [...newCards];
+
+    while (selected.length < 10) {
+      selected.push(...unselected.splice(rand(unselected.length), 1));
     }
 
-    selectedCards.forEach(card => card.clicked);
+    console.log('unselected', unselected.map(card => card.value)); // DEBUG
+    console.log('selected', selected.map(card => card.value)); // DEBUG
+
+    selected.forEach(card => card.clicked = true);
     setCards(newCards);
   } 
 
@@ -32,7 +33,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="card-container">
-          {cards.map(card => <Card value={card.value} clicked={card.clicked}/>)}
+          {cards.filter(card => card.clicked).map(card => 
+            <Card 
+              key={card.value}
+              value={card.value} 
+              clicked={card.clicked}
+            />
+          )}
         </div>
       </header>
     </div>
