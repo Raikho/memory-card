@@ -17,12 +17,17 @@ function App() {
       let newCards = JSON.parse(JSON.stringify(prevCards));
       newCards.forEach(card => card.selected = false); // reset .active
   
-      let selected = []; // TODO: pick an unclicked one first'
+      let selected = [];
       let unselected = [...newCards];
+
+      // Guarentee at least 1 unclicked item is selected
+      let unselectedUnclicked = unselected.filter(card => !card.clicked);
+      let unselectedClicked = unselected.filter(card => card.clicked);
+      selected.push(...unselectedUnclicked.splice(rand(unselectedUnclicked.length), 1));
+      unselected = unselectedUnclicked.concat(unselectedClicked);
   
-      while (selected.length < 10) {
+      while (selected.length < 10)
         selected.push(...unselected.splice(rand(unselected.length), 1));
-      }
   
       console.log('unselected', unselected.map(card => card.value)); // DEBUG
       console.log('selected', selected.map(card => card.value)); // DEBUG
