@@ -7,8 +7,8 @@ import './App.css';
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
 
 function App() {
-  const [cards, setCards] = useState(letters.map(letter => {
-    return {id: letter, selected: false, clicked: false}
+  const [cards, setCards] = useState(letters.map((letter, index) => {
+    return {id: index, selected: false, clicked: false, value: letter}
   }));
 
   const [score, setScore] = useState(0);
@@ -25,11 +25,11 @@ function App() {
       // Guarentee at least 1 unclicked item is selected
       let unselectedUnclicked = unselected.filter(card => !card.clicked);
       let unselectedClicked = unselected.filter(card => card.clicked);
-      selected.push(...unselectedUnclicked.splice(rand(unselectedUnclicked.length), 1));
+      selected.push(...unselectedUnclicked.splice(randIndex(unselectedUnclicked), 1));
       unselected = unselectedUnclicked.concat(unselectedClicked);
   
       while (selected.length < 12)
-        selected.push(...unselected.splice(rand(unselected.length), 1));
+        selected.push(...unselected.splice(randIndex(unselected), 1));
   
       console.log('unselected', unselected.map(card => card.id)); // DEBUG
       console.log('selected', selected.map(card => card.id)); // DEBUG
@@ -85,6 +85,7 @@ function App() {
               <Card
                 key={card.id}
                 id={card.id} // change
+                value={card.value}
                 clicked={card.clicked}
                 handleClicked={handleClicked}
               />
@@ -98,4 +99,4 @@ function App() {
 
 export default App;
 
-function rand(x) {return Math.floor(Math.random()*x);}
+function randIndex(array) {return Math.floor(Math.random() * array.length);}

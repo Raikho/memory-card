@@ -1,5 +1,5 @@
 const Card = props => {
-    const { id, clicked, handleClicked } = props;
+    const { id, clicked, handleClicked, value } = props;
     return (
         <div 
             className={clicked ? "card clicked" : "card"}
