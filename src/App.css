@@ -74,7 +74,7 @@
 }
 .clicked {
   background-color: darkcyan;
-  box-shadow: 0 0 8px 4px goldenrod;
+  box-shadow: 0 0 8px 4px darkorange;
 }
 img {
   width: 100%;
@@ -96,14 +96,20 @@ img {
   flex-direction: column;
   gap: 20px;
 }
-
 .title {
   font-size: 40px;
   font-weight: bold;
 }
-
 .instructions {
   color: lightgray;
+}
+.win-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+button {
+  padding: 4px 12px;
 }
 /* ============================ STATS ============================  */
 .stats {

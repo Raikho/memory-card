@@ -80,7 +80,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="game-container">
-          <Header />
+          <Header 
+            numImages={birds.length}
+            hasWon={true}
+            handleReset={null}
+          />
           <Stats score={score} streak={streak}/>
           <div className="card-container">
             {cards.filter(card => card.selected).map(card =>
