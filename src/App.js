@@ -5,7 +5,8 @@ import Header from './Header.js'
 import './App.css';
 
 let birds = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
-birds = ['bird0', 'bird1', 'bird2', 'bird3', 'bird4', 'bird5', 'bird6', 'bird7', 'bird8', 'bird9'];
+birds = ['bird0', 'bird1', 'bird2', 'bird3', 'bird4', 'bird5', 'bird6', 'bird7', 'bird8', 'bird9', 'bird10',
+         'bird11', 'bird12', 'bird13', 'bird14', 'bird15', 'bird16', 'bird17', 'bird18', 'bird19', 'bird20'];
 
 function App() {
   const [cards, setCards] = useState(birds.map((bird, index) => {
