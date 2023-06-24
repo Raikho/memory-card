@@ -4,7 +4,12 @@ const Card = props => {
         <div 
             className={clicked ? "card clicked" : "card"}
             onClick={() => handleClicked(id)}
-        >{id}</div>
+        >
+            <img 
+                src={require(`./assets/${value}.jpg`)}
+                alt={'bird' + (id)}
+            />
+        </div>
     )
 }
 

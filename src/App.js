@@ -4,11 +4,12 @@ import Stats from './Stats.js';
 import Header from './Header.js'
 import './App.css';
 
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
+let birds = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
+birds = ['bird0', 'bird1', 'bird2', 'bird3', 'bird4', 'bird5', 'bird6', 'bird7', 'bird8', 'bird9'];
 
 function App() {
-  const [cards, setCards] = useState(letters.map((letter, index) => {
-    return {id: index, selected: false, clicked: false, value: letter}
+  const [cards, setCards] = useState(birds.map((bird, index) => {
+    return {id: index, selected: false, clicked: false, value: bird}
   }));
 
   const [score, setScore] = useState(0);
@@ -28,7 +29,7 @@ function App() {
       selected.push(...unselectedUnclicked.splice(randIndex(unselectedUnclicked), 1));
       unselected = unselectedUnclicked.concat(unselectedClicked);
   
-      while (selected.length < 12)
+      while (selected.length < 8)
         selected.push(...unselected.splice(randIndex(unselected), 1));
   
       console.log('unselected', unselected.map(card => card.id)); // DEBUG
@@ -77,7 +78,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div class="game-container">
+        <div className="game-container">
           <Header />
           <Stats score={score} streak={streak}/>
           <div className="card-container">
