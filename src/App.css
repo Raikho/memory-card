@@ -59,3 +59,25 @@
 .clicked {
   background-color: darkcyan;
 }
+
+/* ============================ HEADER ============================  */
+.header {
+  width: max(70%, 500px);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.instructions {
+  color: lightgray;
+}
+/* ============================ Stats ============================  */

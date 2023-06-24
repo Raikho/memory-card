@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './Card.js';
 import Stats from './Stats.js';
+import Header from './Header.js'
 import './App.css';
 
 let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
@@ -59,7 +60,7 @@ function App() {
     randomizeCards();
   }
 
-  const clickedOld = (newCards, card) => {
+  const clickedOld = () => {
     setScore(0);
     setCards(prevCards => {
       let newCards = JSON.parse(JSON.stringify(prevCards));
@@ -76,6 +77,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Header />
         <Stats score={score} streak={streak}/>
         <div className="card-container">
           {cards.filter(card => card.selected).map(card => 
