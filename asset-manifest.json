@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/memory-card/static/css/main.c94f02b1.css",
+    "main.js": "/memory-card/static/js/main.089df8b0.js",
+    "static/js/787.d6a8b40f.chunk.js": "/memory-card/static/js/787.d6a8b40f.chunk.js",
+    "static/media/bird1.jpg": "/memory-card/static/media/bird1.f2e70710e6a0222c272c.jpg",
+    "static/media/bird17.jpg": "/memory-card/static/media/bird17.6c4e99cd96aa25fc1220.jpg",
+    "static/media/bird10.jpg": "/memory-card/static/media/bird10.83a5b060f38e0c7a7771.jpg",
+    "static/media/bird16.jpg": "/memory-card/static/media/bird16.5973973f5feb9ee3a3a5.jpg",
+    "static/media/bird3.jpg": "/memory-card/static/media/bird3.d31a64a1e133243b95ad.jpg",
+    "static/media/bird15.jpg": "/memory-card/static/media/bird15.305ae115306f5321d2c3.jpg",
+    "static/media/bird0.jpg": "/memory-card/static/media/bird0.86646a0d1f869b04d4e6.jpg",
+    "static/media/bird19.jpg": "/memory-card/static/media/bird19.f49b6c6059b4f5d56b15.jpg",
+    "static/media/bird14.jpg": "/memory-card/static/media/bird14.6f7878e42bbcdea2a063.jpg",
+    "static/media/bird20.jpg": "/memory-card/static/media/bird20.b2251215096eec7a8bb6.jpg",
+    "static/media/bird12.jpg": "/memory-card/static/media/bird12.10209a30d180430116aa.jpg",
+    "static/media/bird11.jpg": "/memory-card/static/media/bird11.c95c117657660a214b30.jpg",
+    "static/media/bird13.jpg": "/memory-card/static/media/bird13.dfe8926571f0006fe473.jpg",
+    "static/media/bird8.jpg": "/memory-card/static/media/bird8.d2787f3e0099fe2bfa05.jpg",
+    "static/media/bird2.jpg": "/memory-card/static/media/bird2.e718b60d7fd23e1dee5d.jpg",
+    "static/media/bird4.jpg": "/memory-card/static/media/bird4.950dc03b437587577205.jpg",
+    "static/media/bird9.jpg": "/memory-card/static/media/bird9.a5213bd3b269d70c7621.jpg",
+    "static/media/bird5.jpg": "/memory-card/static/media/bird5.9efd6144ee73dcadf5f3.jpg",
+    "static/media/bird6.jpg": "/memory-card/static/media/bird6.8489453f4a193abe42f0.jpg",
+    "static/media/bird18.jpg": "/memory-card/static/media/bird18.cb57be771145ee98a7dc.jpg",
+    "static/media/bird7.jpg": "/memory-card/static/media/bird7.a92f63e2388424ca14b6.jpg",
+    "index.html": "/memory-card/index.html",
+    "main.c94f02b1.css.map": "/memory-card/static/css/main.c94f02b1.css.map",
+    "main.089df8b0.js.map": "/memory-card/static/js/main.089df8b0.js.map",
+    "787.d6a8b40f.chunk.js.map": "/memory-card/static/js/787.d6a8b40f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c94f02b1.css",
+    "static/js/main.089df8b0.js"
+  ]
+}
