@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/memory-card/static/css/main.c94f02b1.css",
+    "main.css": "/memory-card/static/css/main.cf24f080.css",
     "main.js": "/memory-card/static/js/main.089df8b0.js",
     "static/js/787.d6a8b40f.chunk.js": "/memory-card/static/js/787.d6a8b40f.chunk.js",
     "static/media/bird1.jpg": "/memory-card/static/media/bird1.f2e70710e6a0222c272c.jpg",
@@ -25,12 +25,12 @@
     "static/media/bird18.jpg": "/memory-card/static/media/bird18.cb57be771145ee98a7dc.jpg",
     "static/media/bird7.jpg": "/memory-card/static/media/bird7.a92f63e2388424ca14b6.jpg",
     "index.html": "/memory-card/index.html",
-    "main.c94f02b1.css.map": "/memory-card/static/css/main.c94f02b1.css.map",
+    "main.cf24f080.css.map": "/memory-card/static/css/main.cf24f080.css.map",
     "main.089df8b0.js.map": "/memory-card/static/js/main.089df8b0.js.map",
     "787.d6a8b40f.chunk.js.map": "/memory-card/static/js/787.d6a8b40f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c94f02b1.css",
+    "static/css/main.cf24f080.css",
     "static/js/main.089df8b0.js"
   ]
 }
