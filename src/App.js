@@ -15,6 +15,7 @@ function App() {
 
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [hasWon, setHasWon] = useState(false);
 
   const randomizeCards = () => {
     setCards(prevCards => {
@@ -48,6 +49,16 @@ function App() {
       clickedNew(id);
   }
 
+  const handleReset = () => {
+    setCards(prevCards => {
+      let newCards = JSON.parse(JSON.stringify(prevCards));
+      newCards.forEach(card => card.clicked = false);
+      return newCards;
+    })
+    setHasWon(false);
+    setScore(0);
+  }
+
   const clickedNew = id => {
      // TODO: check win condition
 
@@ -74,7 +85,11 @@ function App() {
 
   useEffect(randomizeCards, []);
 
-  useEffect(() => {if (score > streak) setStreak(score);}, [score])
+  useEffect(() => {
+    if (score > streak) setStreak(score);
+    if (score >= birds.length)
+      setHasWon(true);
+  }, [score])
 
   return (
     <div className="App">
@@ -82,8 +97,8 @@ function App() {
         <div className="game-container">
           <Header 
             numImages={birds.length}
-            hasWon={true}
-            handleReset={null}
+            hasWon={hasWon}
+            handleReset={handleReset}
           />
           <Stats score={score} streak={streak}/>
           <div className="card-container">
