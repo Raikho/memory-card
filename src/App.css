@@ -73,8 +73,9 @@
   align-items: center;
 }
 .clicked {
-  background-color: darkcyan;
-  box-shadow: 0 0 8px 4px darkorange;
+  /* DEBUG */
+  /* background-color: darkcyan; */
+  /* box-shadow: 0 0 8px 4px darkorange; */
 }
 img {
   width: 100%;
