@@ -31,7 +31,7 @@ function App() {
       selected.push(...unselectedUnclicked.splice(randIndex(unselectedUnclicked), 1));
       unselected = unselectedUnclicked.concat(unselectedClicked);
   
-      while (selected.length < 8)
+      while (selected.length < 9)
         selected.push(...unselected.splice(randIndex(unselected), 1));
   
       console.log('unselected', unselected.map(card => card.id)); // DEBUG

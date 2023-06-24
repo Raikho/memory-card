@@ -57,13 +57,13 @@
   padding: 20px;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 20px;
 }
 .card {
-  width: 150px;
-  height: 150px;
+  width: 220px;
+  height: 220px;
   border-radius: 5px;
   box-shadow: 4px 4px 4px #fff3;
   border: 3px solid white;
@@ -121,4 +121,7 @@ button {
   border: 1px solid white;
   border-radius: 5px;
   padding: 20px;
+}
+.score.new {
+  color: rgba(255, 0, 0, 0.733);
 }

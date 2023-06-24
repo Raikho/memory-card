@@ -5,7 +5,7 @@ const Header = props => {
             <div className="title">Memory Game</div>
             {hasWon ?
                 <div className="win-container">
-                    <div className="instructions">You selected all {numImages}!</div>
+                    <div className="instructions">Congraduations! You selected all {numImages}!</div>
                     <button onClick={handleReset}>Reset</button>
                 </div> :
                 <div className="instructions">
