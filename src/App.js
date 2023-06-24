@@ -28,7 +28,7 @@ function App() {
       selected.push(...unselectedUnclicked.splice(rand(unselectedUnclicked.length), 1));
       unselected = unselectedUnclicked.concat(unselectedClicked);
   
-      while (selected.length < 10)
+      while (selected.length < 12)
         selected.push(...unselected.splice(rand(unselected.length), 1));
   
       console.log('unselected', unselected.map(card => card.id)); // DEBUG
@@ -77,17 +77,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header />
-        <Stats score={score} streak={streak}/>
-        <div className="card-container">
-          {cards.filter(card => card.selected).map(card => 
-            <Card 
-              key={card.id}
-              id={card.id} // change
-              clicked={card.clicked}
-              handleClicked={handleClicked}
-            />
-          )}
+        <div class="game-container">
+          <Header />
+          <Stats score={score} streak={streak}/>
+          <div className="card-container">
+            {cards.filter(card => card.selected).map(card =>
+              <Card
+                key={card.id}
+                id={card.id} // change
+                clicked={card.clicked}
+                handleClicked={handleClicked}
+              />
+            )}
+          </div>
         </div>
       </header>
     </div>
